@@ -1,8 +1,9 @@
 import BottomBarIcon from 'components/BottomBarIcon';
 import * as React from 'react';
-import { SafeAreaView } from 'react-native';
-import { Text } from 'react-native-paper';
+import { View } from 'react-native';
 import { NavigationScreenOptions } from 'react-navigation';
+
+import ListaBarracas from './components/ListaBarracas';
 
 export default class Barracas extends React.Component {
   public static navigationOptions: NavigationScreenOptions = {
@@ -10,9 +11,9 @@ export default class Barracas extends React.Component {
   };
   public render() {
     return (
-      <SafeAreaView>
-        <Text>Barracas</Text>
-      </SafeAreaView>
+      <View style={{ flex: 1 }}>
+        <ListaBarracas />
+      </View>
     );
   }
 }
