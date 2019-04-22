@@ -15,7 +15,7 @@ export default class Mapa extends React.Component {
         <LottieView
           source={require("res/animations/soon.json")}
           autoPlay
-          loop
+          loop={true}
         />
         <Text
           style={{

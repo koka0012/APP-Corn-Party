@@ -15,7 +15,7 @@ export default class Pratos extends React.Component {
         <LottieView
           source={require("res/animations/soon.json")}
           autoPlay
-          loop
+          loop={true}
         />
         <Text
           style={{

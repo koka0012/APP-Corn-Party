@@ -6,5 +6,9 @@ import mock from '../mock.json';
 import ItemBarraca from './ItemBarraca';
 
 export default () => (
-  <FlatList data={mock as Barraca[]} renderItem={ItemBarraca} />
+  <FlatList
+    data={mock as Barraca[]}
+    renderItem={ItemBarraca}
+    removeClippedSubviews={true}
+  />
 );
