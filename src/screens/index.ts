@@ -1,11 +1,16 @@
-import { createAppContainer } from 'react-navigation';
+import { createAppContainer, createStackNavigator, createSwitchNavigator } from 'react-navigation';
 import { createMaterialBottomTabNavigator } from 'react-navigation-material-bottom-tabs';
 
 import Barracas from './Barracas';
 import Informacoes from './Informacoes';
+import Login from './Login';
 import Mapa from './Mapa';
 import Pratos from './Pratos';
 import Usuario from './Usuario';
+
+export const LoginStack = createStackNavigator({
+  Login
+});
 
 export const AppBottomTab = createMaterialBottomTabNavigator(
   {
@@ -18,4 +23,9 @@ export const AppBottomTab = createMaterialBottomTabNavigator(
   { shifting: true, initialRouteName: "Informacoes" }
 );
 
-export default createAppContainer(AppBottomTab);
+export const SwitchNavigation = createSwitchNavigator({
+  LoginStack,
+  AppBottomTab
+});
+
+export default createAppContainer(SwitchNavigation);
