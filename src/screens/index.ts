@@ -6,10 +6,12 @@ import Informacoes from './Informacoes';
 import Login from './Login';
 import Mapa from './Mapa';
 import Pratos from './Pratos';
+import Registro from './Registro';
 import Usuario from './Usuario';
 
 export const LoginStack = createStackNavigator({
-  Login
+  Login,
+  Registro
 });
 
 export const AppBottomTab = createMaterialBottomTabNavigator(
