@@ -20,17 +20,17 @@ export default class Informacoes extends React.Component {
   };
   public render() {
     return (
-      <SafeAreaView style={{ flex: 1 }}>
-        <ScrollView
-          contentContainerStyle={{
-            flexGrow: 1,
-            paddingHorizontal: 15,
-            paddingVertical: 5
-          }}
-        >
+      <ScrollView
+        contentContainerStyle={{
+          flexGrow: 1,
+          paddingHorizontal: 15,
+          paddingVertical: 5
+        }}
+      >
+        <SafeAreaView style={{ flex: 1 }}>
           <Markdown>{markdown}</Markdown>
-        </ScrollView>
-      </SafeAreaView>
+        </SafeAreaView>
+      </ScrollView>
     );
   }
 }
