@@ -1,9 +1,10 @@
 import * as React from 'react';
 import { Button } from 'react-native-paper';
+import { NavigationInjectedProps, withNavigation } from 'react-navigation';
 
-export default () => (
+const Guest = ({ navigation }: NavigationInjectedProps) => (
   <Button
-    onPress={() => null}
+    onPress={() => navigation.navigate("AppBottomTab")}
     compact
     color="#adadad"
     style={{ marginTop: 16 }}
@@ -11,3 +12,5 @@ export default () => (
     Continuar como convidado
   </Button>
 );
+
+export default withNavigation(Guest);

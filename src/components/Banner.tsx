@@ -1,12 +1,24 @@
+import Color from 'color';
 import * as React from 'react';
-import { Image, SafeAreaView } from 'react-native';
+import { SafeAreaView, StatusBar, View } from 'react-native';
+import { LightTheme } from 'res/theme';
 
 export default () => (
-  <SafeAreaView style={{ backgroundColor: "#e5ba1d" }}>
-    <Image
-      style={{ width: "100%", height: 50 }}
-      source={require("res/images/vetor-milho.jpg")}
-      resizeMode="repeat"
+  <SafeAreaView
+    style={{
+      backgroundColor: Color(LightTheme.colors.primary)
+        .darken(0.3)
+        .hsl()
+        .string()
+    }}
+  >
+    <StatusBar animated barStyle="light-content" />
+    <View
+      style={{
+        height: 50,
+        width: "100%",
+        backgroundColor: LightTheme.colors.primary
+      }}
     />
   </SafeAreaView>
 );
