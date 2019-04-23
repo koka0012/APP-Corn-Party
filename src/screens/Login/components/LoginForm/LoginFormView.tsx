@@ -17,7 +17,6 @@ export default (props: FormikProps<typeof initialValues>) => (
       type="email"
       errors={props.errors}
       toucheds={props.touched}
-      autoFocus
     />
     <TextInput
       label="Senha"
