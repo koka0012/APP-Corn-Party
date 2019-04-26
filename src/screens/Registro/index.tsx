@@ -1,6 +1,6 @@
 import FlexAreaView from 'components/FlexAreaView';
 import * as React from 'react';
-import { NavigationScreenOptions } from 'react-navigation';
+import { NavigationScreenOptions, ScrollView } from 'react-navigation';
 import { LightTheme } from 'res/theme';
 
 import RegisterForm from './components/RegisterForm';
@@ -14,9 +14,11 @@ export default class Registro extends React.Component {
   public render() {
     return (
       <React.Fragment>
-        <FlexAreaView>
-          <RegisterForm />
-        </FlexAreaView>
+        <ScrollView contentContainerStyle={{ flexGrow: 1 }}>
+          <FlexAreaView>
+            <RegisterForm />
+          </FlexAreaView>
+        </ScrollView>
       </React.Fragment>
     );
   }

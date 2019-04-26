@@ -1,6 +1,13 @@
 import { createAppContainer, createStackNavigator, createSwitchNavigator } from 'react-navigation';
 import { createMaterialBottomTabNavigator } from 'react-navigation-material-bottom-tabs';
+import {
+  createNavigationReducer,
+  createReactNavigationReduxMiddleware,
+  createReduxContainer,
+} from 'react-navigation-redux-helpers';
+import { connect } from 'react-redux';
 
+import { RootState } from '../redux/redux';
 import Barracas from './Barracas';
 import Informacoes from './Informacoes';
 import Login from './Login';
@@ -30,4 +37,16 @@ export const SwitchNavigation = createSwitchNavigator({
   AppBottomTab
 });
 
-export default createAppContainer(SwitchNavigation);
+export const AppNavigator = createAppContainer(SwitchNavigation);
+export const navReducer = createNavigationReducer(AppNavigator);
+
+export const navMiddleware = createReactNavigationReduxMiddleware<RootState>(
+  state => state.nav
+);
+
+export const App = createReduxContainer(AppNavigator);
+const mapStateToProps = (state: RootState) => ({
+  state: state.nav
+});
+
+export const AppWithNavigationState = connect(mapStateToProps)(App);

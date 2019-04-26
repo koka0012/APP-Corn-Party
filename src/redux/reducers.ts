@@ -1,9 +1,11 @@
 import { combineReducers } from 'redux';
 
+import { navReducer } from '../screens';
 import loginReducers from '../screens/Login/redux/reducers';
 import registerReducer from '../screens/Registro/redux/reducer';
 
 export default combineReducers({
   login: loginReducers,
-  register: registerReducer
+  register: registerReducer,
+  nav: navReducer
 });

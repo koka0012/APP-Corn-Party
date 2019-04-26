@@ -14,11 +14,15 @@ const enhancedCompose =
 const sagaMiddleware = createSagaMiddleware();
 
 const enhancer = enhancedCompose(
-  applyMiddleware(sagaMiddleware),
   offline({
     ...offlineConfig,
-    effect: effect
-  })
+    effect: effect,
+    persistOptions: {
+      ...offlineConfig.persistOptions,
+      blacklist: ["nav"]
+    }
+  }),
+  applyMiddleware(sagaMiddleware)
   // other store enhancers if any
 );
 
