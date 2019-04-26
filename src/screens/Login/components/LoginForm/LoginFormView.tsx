@@ -8,7 +8,9 @@ import { Button } from 'react-native-paper';
 
 import { initialValues } from '../../container/LoginFormContainer';
 
-export default (props: FormikProps<typeof initialValues>) => (
+export default (
+  props: FormikProps<typeof initialValues> & { loading: boolean }
+) => (
   <Form>
     <TextInput
       label="Email"
@@ -35,7 +37,12 @@ export default (props: FormikProps<typeof initialValues>) => (
           : "password"
       }
     />
-    <Button mode="contained" onPress={props.submitForm}>
+    <Button
+      mode="contained"
+      onPress={props.submitForm}
+      disabled={props.loading}
+      loading={props.loading}
+    >
       Entrar
     </Button>
   </Form>
