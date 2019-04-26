@@ -12,6 +12,7 @@
     "target": "esnext",
     "resolveJsonModule": true
   },
+  "include": ["src/**/*"],
   "exclude": [
     "node_modules",
     "babel.config.js",

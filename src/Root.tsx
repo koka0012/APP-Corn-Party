@@ -2,9 +2,7 @@ import * as React from 'react';
 import { Provider } from 'react-redux';
 
 import App from './App';
-import { setupStore } from './redux/store';
-
-export const store = setupStore();
+import store from './redux/store';
 
 export default () => (
   <Provider store={store}>

@@ -8,12 +8,14 @@ import { Button } from 'react-native-paper';
 
 import { initialValues } from '../../container/RegisterFormContainer';
 
-export default (props: FormikProps<typeof initialValues>) => (
+export default (
+  props: FormikProps<typeof initialValues> & { loading: boolean }
+) => (
   <Form>
     <TextInput
       label="Nome"
       mode="outlined"
-      name="email"
+      name="name"
       type="text"
       errors={props.errors}
       toucheds={props.touched}
@@ -43,7 +45,12 @@ export default (props: FormikProps<typeof initialValues>) => (
           : "password"
       }
     />
-    <Button mode="contained" onPress={props.submitForm}>
+    <Button
+      mode="contained"
+      onPress={props.submitForm}
+      disabled={props.loading}
+      loading={props.loading}
+    >
       Registrar
     </Button>
   </Form>

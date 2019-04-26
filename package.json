@@ -11,6 +11,7 @@
   "dependencies": {
     "@redux-offline/redux-offline": "^2.5.1",
     "@types/color": "^3.0.0",
+    "axios": "^0.18.0",
     "color": "^3.1.1",
     "formik": "^1.5.2",
     "lottie-react-native": "^2.6.1",
@@ -23,6 +24,7 @@
     "react-native-gesture-handler": "^1.1.0",
     "react-native-markdown-renderer": "^3.2.8",
     "react-native-paper": "^2.15.2",
+    "react-native-snackbar": "^0.5.5",
     "react-native-vector-icons": "^6.4.2",
     "react-navigation": "^3.8.1",
     "react-navigation-material-bottom-tabs": "^1.0.0",
@@ -38,6 +40,7 @@
     "@babel/core": "^7.4.3",
     "@babel/runtime": "^7.4.3",
     "@react-native-community/eslint-config": "^0.0.4",
+    "@types/axios": "^0.14.0",
     "@types/jest": "^24.0.11",
     "@types/react": "^16.8.14",
     "@types/react-native": "^0.57.47",
