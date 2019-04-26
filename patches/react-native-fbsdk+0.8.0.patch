@@ -1,0 +1,42 @@
+diff --git a/node_modules/react-native-fbsdk/ios/RCTFBSDK.xcodeproj/project.pbxproj b/node_modules/react-native-fbsdk/ios/RCTFBSDK.xcodeproj/project.pbxproj
+index 267453a..3b135f0 100644
+--- a/node_modules/react-native-fbsdk/ios/RCTFBSDK.xcodeproj/project.pbxproj
++++ b/node_modules/react-native-fbsdk/ios/RCTFBSDK.xcodeproj/project.pbxproj
+@@ -365,7 +365,7 @@
+ 				COPY_PHASE_STRIP = NO;
+ 				FRAMEWORK_SEARCH_PATHS = (
+ 					"$(inherited)",
+-					"~/Documents/FacebookSDK",
++					"$(HOME)/Documents/FacebookSDK",
+ 					"$(PROJECT_DIR)/../../../ios/Frameworks",
+ 					"$(PROJECT_DIR)/../../../ios/Pods",
+ 				);
+@@ -390,7 +390,7 @@
+ 				COPY_PHASE_STRIP = YES;
+ 				FRAMEWORK_SEARCH_PATHS = (
+ 					"$(inherited)",
+-					"~/Documents/FacebookSDK",
++					"$(HOME)/Documents/FacebookSDK",
+ 					"$(PROJECT_DIR)/../../../ios/Frameworks",
+ 					"$(PROJECT_DIR)/../../../ios/Pods",
+ 				);
+diff --git a/node_modules/react-native-fbsdk/ios/RCTFBSDK.xcodeproj/xcuserdata/multiware.xcuserdatad/xcschemes/xcschememanagement.plist b/node_modules/react-native-fbsdk/ios/RCTFBSDK.xcodeproj/xcuserdata/multiware.xcuserdatad/xcschemes/xcschememanagement.plist
+new file mode 100644
+index 0000000..e692145
+--- /dev/null
++++ b/node_modules/react-native-fbsdk/ios/RCTFBSDK.xcodeproj/xcuserdata/multiware.xcuserdatad/xcschemes/xcschememanagement.plist
+@@ -0,0 +1,14 @@
++<?xml version="1.0" encoding="UTF-8"?>
++<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
++<plist version="1.0">
++<dict>
++	<key>SchemeUserState</key>
++	<dict>
++		<key>RCTFBSDK.xcscheme_^#shared#^_</key>
++		<dict>
++			<key>orderHint</key>
++			<integer>46</integer>
++		</dict>
++	</dict>
++</dict>
++</plist>
