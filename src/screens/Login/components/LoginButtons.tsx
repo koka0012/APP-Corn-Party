@@ -9,6 +9,7 @@ import Guest from './Guest';
 const LoginButtons = ({ navigation }: NavigationInjectedProps) => (
   <View style={{ paddingHorizontal: 16 }}>
     <Button
+      disabled
       mode="contained"
       color="#3C5A99"
       icon={props => <Icon name="facebook-box" {...props} />}
