@@ -6,5 +6,5 @@ export default interface Barraca {
   idcurso: number;
   pagamento: string;
   cnome: string;
-  logo?: string;
+  nomeimagem?: string;
 }

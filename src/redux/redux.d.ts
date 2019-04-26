@@ -1,13 +1,15 @@
 import { NavigationAction } from 'react-navigation';
 import { ActionType, StateType } from 'typesafe-actions';
 
+import * as BarracaActions from '../screens/Barracas/redux/actions';
 import * as LoginActions from '../screens/Login/redux/actions';
 import * as RegisterActions from '../screens/Registro/redux/actions';
 
 type RootActions =
   | NavigationAction
   | ActionType<typeof RegisterActions>
-  | ActionType<typeof LoginActions>;
+  | ActionType<typeof LoginActions>
+  | ActionType<typeof BarracaActions>;
 
 export type Store = StateType<typeof import("./store").default>;
 export type RootAction = RootActions;

@@ -2,13 +2,17 @@ import * as React from 'react';
 import { FlatList } from 'react-native';
 
 import Barraca from '../../../typings/Barraca.js';
-import mock from '../mock.json';
 import ItemBarraca from './ItemBarraca';
 
-export default () => (
+export interface ListaBarracasProps {
+  barracas: Barraca[];
+}
+
+export default (props: ListaBarracasProps) => (
   <FlatList
-    data={mock as Barraca[]}
+    data={props.barracas}
     renderItem={ItemBarraca}
     removeClippedSubviews={true}
+    keyExtractor={barraca => `barraca-${barraca.id}`}
   />
 );

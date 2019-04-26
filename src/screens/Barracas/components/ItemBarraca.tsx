@@ -13,8 +13,8 @@ export default ({ item }: ListRenderItemInfo<Barraca>) => (
       description={item.cnome}
       left={props => (
         <View style={{ justifyContent: "center", alignItems: "center" }}>
-          {item.logo ? (
-            <Avatar.Image size={46} source={{ uri: item.logo }} />
+          {item.nomeimagem ? (
+            <Avatar.Image size={46} source={{ uri: item.nomeimagem }} />
           ) : (
             <Avatar.Text size={46} label={getInitials(item.nome)} />
           )}
