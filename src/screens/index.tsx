@@ -1,3 +1,5 @@
+import BottomBarIcon from 'components/BottomBarIcon';
+import * as React from 'react';
 import { createAppContainer, createStackNavigator, createSwitchNavigator } from 'react-navigation';
 import { createMaterialBottomTabNavigator } from 'react-navigation-material-bottom-tabs';
 import {
@@ -8,6 +10,7 @@ import {
 import { connect } from 'react-redux';
 
 import { RootState } from '../redux/redux';
+import BarracaInfo from './BarracaInfo';
 import Barracas from './Barracas';
 import Informacoes from './Informacoes';
 import Login from './Login';
@@ -21,9 +24,22 @@ export const LoginStack = createStackNavigator({
   Registro
 });
 
+export const BarracaStack = createStackNavigator({
+  Barracas,
+  BarracaInfo
+});
+
 export const AppBottomTab = createMaterialBottomTabNavigator(
   {
-    Barracas,
+    BarracaStack: {
+      screen: BarracaStack,
+      navigationOptions: {
+        tabBarLabel: "Barracas",
+        tabBarIcon: (props: any) => (
+          <BottomBarIcon name="home-variant" {...props} />
+        )
+      }
+    },
     Pratos,
     Informacoes,
     Mapa,

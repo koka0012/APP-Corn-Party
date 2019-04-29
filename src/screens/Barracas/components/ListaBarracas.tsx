@@ -11,7 +11,7 @@ export interface ListaBarracasProps {
 export default (props: ListaBarracasProps) => (
   <FlatList
     data={props.barracas}
-    renderItem={ItemBarraca}
+    renderItem={props => <ItemBarraca {...props} />}
     removeClippedSubviews={true}
     keyExtractor={barraca => `barraca-${barraca.id}`}
   />

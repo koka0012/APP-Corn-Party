@@ -1,4 +1,3 @@
-import BottomBarIcon from 'components/BottomBarIcon';
 import * as React from 'react';
 import { View } from 'react-native';
 import { NavigationScreenOptions } from 'react-navigation';
@@ -16,7 +15,7 @@ export interface BarracasProps {
 }
 class Barracas extends React.Component<BarracasProps, {}> {
   public static navigationOptions: NavigationScreenOptions = {
-    tabBarIcon: props => <BottomBarIcon name="home-variant" {...props} />
+    header: null
   };
 
   componentDidMount() {
