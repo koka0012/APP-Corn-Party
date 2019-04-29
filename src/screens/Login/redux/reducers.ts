@@ -17,7 +17,8 @@ const loginReducers = createReducer(initialState)
     console.log(action);
     return {
       ...state,
-      loading: false
+      loading: false,
+      token: (action as any).payload.data.token
     };
   });
 
