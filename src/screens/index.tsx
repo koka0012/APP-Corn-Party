@@ -64,8 +64,7 @@ export const LoginStack = createStackNavigator({
 });
 
 export const BarracaStack = createStackNavigator({
-  Barracas,
-  BarracaInfo
+  Barracas
 });
 
 export const AppBottomTab = createMaterialBottomTabNavigator(
@@ -93,9 +92,19 @@ export const AppBottomTab = createMaterialBottomTabNavigator(
   { shifting: true, initialRouteName: "Informacoes" }
 );
 
+export const AppNavigation = createStackNavigator({
+  AppBottomTab: {
+    screen: AppBottomTab,
+    navigationOptions: {
+      header: null
+    }
+  },
+  BarracaInfo
+});
+
 export const SwitchNavigation = createSwitchNavigator({
   LoginStack,
-  AppBottomTab
+  AppNavigation
 });
 
 export const AppNavigator = createAppContainer(SwitchNavigation);

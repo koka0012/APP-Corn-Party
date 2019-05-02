@@ -24,7 +24,7 @@ export default (props: ListaBebidasBarraca) =>
             right={() => (
               <View
                 style={{
-                  width: 75,
+                  paddingHorizontal: 15,
                   justifyContent: "center",
                   alignItems: "center"
                 }}

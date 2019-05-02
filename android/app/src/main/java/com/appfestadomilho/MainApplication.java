@@ -3,6 +3,7 @@ package com.appfestadomilho;
 import android.app.Application;
 
 import com.facebook.react.ReactApplication;
+import com.bugsnag.BugsnagReactNative;
 import com.azendoo.reactnativesnackbar.SnackbarPackage;
 import com.facebook.reactnative.androidsdk.FBSDKPackage;
 import com.airbnb.android.react.lottie.LottiePackage;
@@ -38,6 +39,7 @@ public class MainApplication extends Application implements ReactApplication {
         protected List<ReactPackage> getPackages() {
             return Arrays.<ReactPackage>asList(
                     new MainReactPackage(),
+            BugsnagReactNative.getPackage(),
             new SnackbarPackage(),
                     new FBSDKPackage(mCallbackManager),
                     new LottiePackage(),
