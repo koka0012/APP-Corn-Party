@@ -4,7 +4,7 @@ import { IconButton } from 'react-native-paper';
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
 
 export default () => (
-  <View>
+  <View style={{ justifyContent: "center", alignItems: "center" }}>
     <IconButton
       icon={props => <Icon {...props} name="star-outline" />}
       onPress={() => Alert.alert("Aviso", "É necessário estar logado!")}

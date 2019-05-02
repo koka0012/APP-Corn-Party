@@ -1,6 +1,12 @@
+import Color from 'color';
 import BottomBarIcon from 'components/BottomBarIcon';
 import * as React from 'react';
-import { createAppContainer, createStackNavigator, createSwitchNavigator } from 'react-navigation';
+import {
+  createAppContainer,
+  createMaterialTopTabNavigator,
+  createStackNavigator,
+  createSwitchNavigator,
+} from 'react-navigation';
 import { createMaterialBottomTabNavigator } from 'react-navigation-material-bottom-tabs';
 import {
   createNavigationReducer,
@@ -8,6 +14,7 @@ import {
   createReduxContainer,
 } from 'react-navigation-redux-helpers';
 import { connect } from 'react-redux';
+import { LightTheme } from 'res/theme';
 
 import { RootState } from '../redux/redux';
 import BarracaInfo from './BarracaInfo';
@@ -15,10 +22,42 @@ import Barracas from './Barracas';
 import Informacoes from './Informacoes';
 import Login from './Login';
 import Mapa from './Mapa';
-import Pratos from './Pratos';
+import { Bebidas, Comidas } from './Pratos';
 import Registro from './Registro';
 import Usuario from './Usuario';
 
+export const ComesEBebesTab = createMaterialTopTabNavigator(
+  {
+    Comidas,
+    Bebidas
+  },
+  {
+    tabBarOptions: {
+      indicatorStyle: {
+        backgroundColor: Color(LightTheme.colors.accent).toString()
+      },
+      style: {
+        backgroundColor: Color(LightTheme.colors.primary)
+          .darken(0.3)
+          .toString()
+      },
+      pressColor: Color(LightTheme.colors.accent).toString()
+    }
+  }
+);
+
+export const ComesEBebes = createStackNavigator({
+  ComesEBebesTab: {
+    screen: ComesEBebesTab,
+    navigationOptions: {
+      title: "Comes e Bebes",
+      headerTintColor: "#fff",
+      headerStyle: {
+        backgroundColor: LightTheme.colors.primary
+      }
+    }
+  }
+});
 export const LoginStack = createStackNavigator({
   Login,
   Registro
@@ -40,7 +79,13 @@ export const AppBottomTab = createMaterialBottomTabNavigator(
         )
       }
     },
-    Pratos,
+    ComesEBebes: {
+      screen: ComesEBebes,
+      navigationOptions: {
+        tabBarLabel: "Pratos",
+        tabBarIcon: (props: any) => <BottomBarIcon name="food" {...props} />
+      }
+    },
     Informacoes,
     Mapa,
     Usuario

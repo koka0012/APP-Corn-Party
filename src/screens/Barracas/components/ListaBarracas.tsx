@@ -1,5 +1,6 @@
 import * as React from 'react';
 import { FlatList } from 'react-native';
+import { Divider } from 'react-native-paper';
 
 import Barraca from '../../../typings/Barraca.js';
 import ItemBarraca from './ItemBarraca';
@@ -14,5 +15,6 @@ export default (props: ListaBarracasProps) => (
     renderItem={props => <ItemBarraca {...props} />}
     removeClippedSubviews={true}
     keyExtractor={barraca => `barraca-${barraca.id}`}
+    ItemSeparatorComponent={Divider}
   />
 );

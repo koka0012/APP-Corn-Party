@@ -5,30 +5,39 @@ import { Caption, Title } from 'react-native-paper';
 import { NavigationInjectedProps, NavigationScreenOptions, NavigationScreenProps, ScrollView } from 'react-navigation';
 import { connect } from 'react-redux';
 import { bindActionCreators, Dispatch } from 'redux';
+import { LightTheme } from 'res/theme';
 
 import { RootState } from '../../redux/redux';
 import Barraca from '../../typings/Barraca';
+import Bebida from '../../typings/Bebida';
 import Prato from '../../typings/Prato';
-import { carregarPratos } from '../Pratos/redux/actions';
+import { carregarBebidas, carregarPratos } from '../Pratos/redux/actions';
 import ListaComidasBarraca from './components/ListaComidasBarraca';
 import { selecionarBarraca } from './redux/actions';
-import { getPratosForBarraca } from './redux/reselector';
+import { getBebidasForBarraca, getPratosForBarraca } from './redux/reselector';
 
 class BarracaInfo extends React.Component<
   NavigationInjectedProps & {
     carregarPratos: typeof carregarPratos;
+    carregarBebidas: typeof carregarBebidas;
     selecionarBarraca: typeof selecionarBarraca;
     pratos: Prato[];
+    bebidas: Bebida[];
   }
 > {
   public static navigationOptions = ({
     navigation
   }: NavigationScreenProps): NavigationScreenOptions => ({
+    headerTintColor: "#fff",
+    headerStyle: {
+      backgroundColor: LightTheme.colors.primary
+    },
     title: navigation.getParam("barraca").nome
   });
 
   public componentDidMount() {
     this.props.carregarPratos();
+    this.props.carregarBebidas();
     this.props.selecionarBarraca(this.props.navigation.getParam("barraca").id);
   }
 
@@ -50,6 +59,8 @@ class BarracaInfo extends React.Component<
           </Caption>
           <Title style={{ textAlign: "center", marginTop: 20 }}>Pratos</Title>
           <ListaComidasBarraca pratos={this.props.pratos} />
+          <Title style={{ textAlign: "center", marginTop: 20 }}>Bebidas</Title>
+          <ListaComidasBarraca pratos={this.props.bebidas} />
         </FlexAreaView>
       </ScrollView>
     );
@@ -57,12 +68,14 @@ class BarracaInfo extends React.Component<
 }
 
 const mapStateToProps = (state: RootState) => ({
-  pratos: getPratosForBarraca(state)
+  pratos: getPratosForBarraca(state),
+  bebidas: getBebidasForBarraca(state)
 });
 
 const mapActionToProps = (dispatch: Dispatch) => ({
   carregarPratos: bindActionCreators(carregarPratos, dispatch),
-  selecionarBarraca: bindActionCreators(selecionarBarraca, dispatch)
+  selecionarBarraca: bindActionCreators(selecionarBarraca, dispatch),
+  carregarBebidas: bindActionCreators(carregarBebidas, dispatch)
 });
 
 export default connect(
