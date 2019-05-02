@@ -3,12 +3,25 @@ import LottieView from 'lottie-react-native';
 import * as React from 'react';
 import { SafeAreaView } from 'react-native';
 import { Text } from 'react-native-paper';
-import { NavigationScreenOptions } from 'react-navigation';
+import { NavigationInjectedProps, NavigationScreenOptions } from 'react-navigation';
+import { connect } from 'react-redux';
+import { bindActionCreators, Dispatch } from 'redux';
 
-export default class Pratos extends React.Component {
+import { RootAction } from '../../redux/redux';
+import { carregarPratos } from './redux/actions';
+
+export interface PratosScreenProps extends NavigationInjectedProps {
+  carregarPratos: typeof carregarPratos;
+}
+
+class Pratos extends React.Component<PratosScreenProps> {
   public static navigationOptions: NavigationScreenOptions = {
     tabBarIcon: props => <BottomBarIcon name="food" {...props} />
   };
+
+  public componentDidMount() {
+    this.props.carregarPratos();
+  }
   public render() {
     return (
       <SafeAreaView style={{ flex: 1, flexDirection: "column-reverse" }}>
@@ -32,3 +45,12 @@ export default class Pratos extends React.Component {
     );
   }
 }
+
+const mapActionToProps = (dispach: Dispatch<RootAction>) => ({
+  carregarPratos: bindActionCreators(carregarPratos, dispach)
+});
+
+export default connect(
+  null,
+  mapActionToProps
+)(Pratos);
