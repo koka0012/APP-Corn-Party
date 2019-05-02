@@ -7,7 +7,7 @@ export default () => (
   <View style={{ justifyContent: "center", alignItems: "center" }}>
     <IconButton
       icon={props => <Icon {...props} name="star-outline" />}
-      onPress={() => Alert.alert("Aviso", "É necessário estar logado!")}
+      onPress={() => Alert.alert("Aviso", "Opção não disponível em teste")}
     />
   </View>
 );
