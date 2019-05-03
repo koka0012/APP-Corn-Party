@@ -8,6 +8,7 @@ import { RootAction, RootState } from '../../redux/redux';
 import Barraca from '../../typings/Barraca';
 import ListaBarracas from './components/ListaBarracas';
 import { carregarBarracas } from './redux/actions';
+import { orderByVotes } from './redux/reselector';
 
 export interface BarracasProps {
   barracas: Barraca[];
@@ -33,7 +34,7 @@ class Barracas extends React.Component<BarracasProps, {}> {
 }
 
 const mapStateToProps = (state: RootState, ownProps: {}) => ({
-  barracas: state.barracas.lista
+  barracas: orderByVotes(state)
 });
 
 const mapActionToProps = (dispatch: Dispatch<RootAction>) => ({
