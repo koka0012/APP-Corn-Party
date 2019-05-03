@@ -14,6 +14,7 @@ export interface BebidasScreenProps extends NavigationInjectedProps {
   carregarBebidas: typeof carregarBebidas;
   bebidas: Prato[];
   barracas: Barraca[];
+  loading: boolean;
 }
 
 class Bebidas extends React.Component<BebidasScreenProps> {
@@ -26,6 +27,8 @@ class Bebidas extends React.Component<BebidasScreenProps> {
         <ListarPratos
           data={this.props.bebidas}
           barracas={this.props.barracas}
+          refresh={this.props.carregarBebidas}
+          refreshing={this.props.loading}
         />
       </SafeAreaView>
     );
@@ -34,6 +37,7 @@ class Bebidas extends React.Component<BebidasScreenProps> {
 
 const mapStateToProps = (state: RootState) => ({
   bebidas: state.pratos.bebidas,
+  loading: state.pratos.loading,
   barracas: state.barracas.lista
 });
 

@@ -10,9 +10,11 @@ import ListarPratosItem from './ListarPratosItem';
 export interface ListarPratosProps {
   data: Prato[] | Bebida[];
   barracas: Barraca[];
+  refreshing: boolean;
+  refresh(): any;
 }
 
-export default ({ data, barracas }: ListarPratosProps) => (
+export default ({ data, barracas, refresh, refreshing }: ListarPratosProps) => (
   <View style={{ flex: 1 }}>
     <FlatList
       style={{ flex: 1 }}
@@ -20,6 +22,8 @@ export default ({ data, barracas }: ListarPratosProps) => (
       ItemSeparatorComponent={Divider}
       renderItem={props => <ListarPratosItem {...props} barracas={barracas} />}
       keyExtractor={item => `Listar-Pratos-${item.id}`}
+      refreshing={refreshing}
+      onRefresh={refresh}
     />
   </View>
 );

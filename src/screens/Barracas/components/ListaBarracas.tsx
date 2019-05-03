@@ -7,6 +7,8 @@ import ItemBarraca from './ItemBarraca';
 
 export interface ListaBarracasProps {
   barracas: Barraca[];
+  refreshing: boolean;
+  refresh(): any;
 }
 
 export default (props: ListaBarracasProps) => (
@@ -16,5 +18,7 @@ export default (props: ListaBarracasProps) => (
     removeClippedSubviews={true}
     keyExtractor={barraca => `barraca-${barraca.id}`}
     ItemSeparatorComponent={Divider}
+    onRefresh={props.refresh}
+    refreshing={props.refreshing}
   />
 );

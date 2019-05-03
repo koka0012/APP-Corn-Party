@@ -23,12 +23,7 @@ const pratosReducer = createReducer(initialState)
     loading: true
   }))
   .handleAction(
-    [
-      CARREGAR_PRATOS_COMMIT,
-      CARREGAR_PRATOS_ROLLBACK,
-      CARREGAR_BEBIDAS_COMMIT,
-      CARREGAR_BEBIDAS_ROLLBACK
-    ],
+    [CARREGAR_PRATOS_ROLLBACK, CARREGAR_BEBIDAS_ROLLBACK],
     state => ({
       ...state,
       loading: false
@@ -40,7 +35,7 @@ const pratosReducer = createReducer(initialState)
         data: { Retorno }
       }
     } = action as any;
-    return { ...state, pratos: Retorno };
+    return { ...state, pratos: Retorno, loading: false };
   })
   .handleAction(CARREGAR_BEBIDAS_COMMIT, (state, action) => {
     const {
@@ -48,7 +43,7 @@ const pratosReducer = createReducer(initialState)
         data: { Retorno }
       }
     } = action as any;
-    return { ...state, bebidas: Retorno };
+    return { ...state, bebidas: Retorno, loading: false };
   });
 
 export default pratosReducer;

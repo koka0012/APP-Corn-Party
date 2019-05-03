@@ -13,6 +13,7 @@ import { orderByVotes } from './redux/reselector';
 export interface BarracasProps {
   barracas: Barraca[];
   carregarBarracas: typeof carregarBarracas;
+  refreshing: boolean;
 }
 class Barracas extends React.Component<BarracasProps, {}> {
   public static navigationOptions: NavigationScreenOptions = {
@@ -24,17 +25,22 @@ class Barracas extends React.Component<BarracasProps, {}> {
   }
 
   public render() {
-    const { barracas } = this.props;
+    const { barracas, refreshing, carregarBarracas } = this.props;
     return (
       <View style={{ flex: 1 }}>
-        <ListaBarracas barracas={barracas} />
+        <ListaBarracas
+          barracas={barracas}
+          refreshing={refreshing}
+          refresh={carregarBarracas}
+        />
       </View>
     );
   }
 }
 
 const mapStateToProps = (state: RootState, ownProps: {}) => ({
-  barracas: orderByVotes(state)
+  barracas: orderByVotes(state),
+  refreshing: state.barracas.loading
 });
 
 const mapActionToProps = (dispatch: Dispatch<RootAction>) => ({

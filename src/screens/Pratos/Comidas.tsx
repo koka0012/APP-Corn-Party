@@ -14,6 +14,7 @@ export interface PratosScreenProps extends NavigationInjectedProps {
   carregarPratos: typeof carregarPratos;
   pratos: Prato[];
   barracas: Barraca[];
+  loading: boolean;
 }
 
 class Pratos extends React.Component<PratosScreenProps> {
@@ -23,7 +24,12 @@ class Pratos extends React.Component<PratosScreenProps> {
   public render() {
     return (
       <SafeAreaView style={{ flex: 1 }}>
-        <ListarPratos data={this.props.pratos} barracas={this.props.barracas} />
+        <ListarPratos
+          data={this.props.pratos}
+          barracas={this.props.barracas}
+          refresh={this.props.carregarPratos}
+          refreshing={this.props.loading}
+        />
       </SafeAreaView>
     );
   }
@@ -31,6 +37,7 @@ class Pratos extends React.Component<PratosScreenProps> {
 
 const mapStateToProps = (state: RootState) => ({
   pratos: state.pratos.pratos,
+  loading: state.pratos.loading,
   barracas: state.barracas.lista
 });
 
