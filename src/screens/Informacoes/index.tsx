@@ -16,7 +16,7 @@ Entre os dias **23 a 25 de maio** acontece a **14º Festa do Milho** da Faculdad
 export default class Informacoes extends React.Component {
   public static navigationOptions: NavigationScreenOptions = {
     tabBarIcon: props => <BottomBarIcon name="corn" {...props} />,
-    title: "Festa do Milho"
+    title: "Sobre"
   };
   public render() {
     return (
