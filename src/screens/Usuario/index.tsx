@@ -2,10 +2,15 @@ import BottomBarIcon from 'components/BottomBarIcon';
 import LottieView from 'lottie-react-native';
 import * as React from 'react';
 import { SafeAreaView } from 'react-native';
-import { Text } from 'react-native-paper';
+import { Button, Text } from 'react-native-paper';
 import { NavigationScreenOptions } from 'react-navigation';
+import { connect } from 'react-redux';
+import { Dispatch } from 'redux';
 
-export default class Usuario extends React.Component {
+import { RootAction } from '../../redux/redux';
+import { logout } from '../Login/redux/actions';
+
+class Usuario extends React.Component<{ dispatch: Dispatch<RootAction> }> {
   public static navigationOptions: NavigationScreenOptions = {
     tabBarIcon: props => <BottomBarIcon name="account" {...props} />,
     title: "Usuário"
@@ -30,7 +35,13 @@ export default class Usuario extends React.Component {
         >
           Em Breve
         </Text>
+        <Button onPress={() => this.props.dispatch(logout())}>Sair</Button>
       </SafeAreaView>
     );
   }
 }
+
+export default connect(
+  null,
+  null
+)(Usuario);

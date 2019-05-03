@@ -1,6 +1,6 @@
 import { action } from 'typesafe-actions';
 
-import { LOGIN, LOGIN_COMMIT, LOGIN_ROLLBACK } from './types';
+import { LOGIN, LOGIN_COMMIT, LOGIN_ROLLBACK, LOGOUT } from './types';
 
 export interface LoginDTO {
   email: string;
@@ -15,3 +15,5 @@ export const login = (payload: LoginDTO) =>
       rollback: { type: LOGIN_ROLLBACK, meta: payload }
     }
   });
+
+export const logout = () => action(LOGOUT);

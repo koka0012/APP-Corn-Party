@@ -1,6 +1,6 @@
 import { createReducer } from 'typesafe-actions';
 
-import { LOGIN, LOGIN_COMMIT, LOGIN_ROLLBACK } from './types';
+import { LOGIN, LOGIN_COMMIT, LOGIN_ROLLBACK, LOGOUT } from './types';
 
 export const initialState = {
   token: "",
@@ -20,6 +20,7 @@ const loginReducers = createReducer(initialState)
       loading: false,
       token: (action as any).payload.data.token
     };
-  });
+  })
+  .handleAction(LOGOUT, state => ({ ...state, token: "" }));
 
 export default loginReducers;
