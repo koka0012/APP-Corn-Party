@@ -1,7 +1,9 @@
+import color from 'color';
 import FlexAreaView from 'components/FlexAreaView';
 import * as React from 'react';
-import { Image } from 'react-native';
-import { Caption, Title } from 'react-native-paper';
+import { Image, View } from 'react-native';
+import { Caption, Text, Title } from 'react-native-paper';
+import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
 import { NavigationInjectedProps, NavigationScreenOptions, NavigationScreenProps, ScrollView } from 'react-navigation';
 import { connect } from 'react-redux';
 import { bindActionCreators, Dispatch } from 'redux';
@@ -57,6 +59,24 @@ class BarracaInfo extends React.Component<
           <Caption style={{ textAlign: "center" }}>
             {barraca.semestre}° Semestre de {barraca.cnome}
           </Caption>
+          <View
+            style={{
+              flexDirection: "row",
+              justifyContent: "center",
+              alignItems: "center"
+            }}
+          >
+            <Text
+              style={{
+                fontSize: 22,
+                fontWeight: "bold",
+                color: LightTheme.colors.accent
+              }}
+            >
+              {barraca.votos}
+            </Text>
+            <Icon name="star" size={25} color={LightTheme.colors.accent} />
+          </View>
           <Title style={{ textAlign: "center", marginTop: 20 }}>Pratos</Title>
           <ListaComidasBarraca pratos={this.props.pratos} />
           <Title style={{ textAlign: "center", marginTop: 20 }}>Bebidas</Title>

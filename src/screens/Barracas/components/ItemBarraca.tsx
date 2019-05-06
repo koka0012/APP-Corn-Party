@@ -24,7 +24,7 @@ const ItemBarraca = ({
           )}
         </View>
       )}
-      right={props => <LikeBarraca />}
+      right={props => <LikeBarraca barraca={item} />}
       onPress={() =>
         navigation.navigate({
           routeName: "BarracaInfo",

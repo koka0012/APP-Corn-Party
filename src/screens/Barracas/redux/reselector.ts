@@ -6,5 +6,5 @@ const getBarracas = (state: RootState) => state.barracas.lista;
 
 export const orderByVotes = createSelector(
   [getBarracas],
-  barracas => barracas
+  barracas => barracas.sort((a, b) => b.votos - a.votos)
 );

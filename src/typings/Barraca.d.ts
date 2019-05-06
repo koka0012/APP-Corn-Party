@@ -7,4 +7,5 @@ export default interface Barraca {
   pagamento: string;
   cnome: string;
   nomeimagem?: string;
+  votos: number;
 }
