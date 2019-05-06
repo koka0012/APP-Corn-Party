@@ -9,8 +9,10 @@ import LikeBarraca from './LikeBarraca';
 
 const ItemBarraca = ({
   item,
-  navigation
-}: ListRenderItemInfo<Barraca> & NavigationInjectedProps) => (
+  navigation,
+  token
+}: ListRenderItemInfo<Barraca> &
+  NavigationInjectedProps & { token: string }) => (
   <SafeAreaView>
     <List.Item
       title={item.nome}
@@ -24,7 +26,7 @@ const ItemBarraca = ({
           )}
         </View>
       )}
-      right={props => <LikeBarraca barraca={item} />}
+      right={props => <LikeBarraca barraca={item} token={token} />}
       onPress={() =>
         navigation.navigate({
           routeName: "BarracaInfo",

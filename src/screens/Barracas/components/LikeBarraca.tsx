@@ -1,13 +1,25 @@
 import color from 'color';
 import * as React from 'react';
-import { Alert, View } from 'react-native';
+import { View } from 'react-native';
 import { IconButton, Text } from 'react-native-paper';
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
+import { connect } from 'react-redux';
+import { bindActionCreators, Dispatch } from 'redux';
 import { LightTheme } from 'res/theme';
 
+import { RootAction } from '../../../redux/redux';
 import Barraca from '../../../typings/Barraca';
+import { votar as Votar } from '../redux/actions';
 
-export default ({ barraca: { votos, id } }: { barraca: Barraca }) => (
+const LikeBarraca = ({
+  barraca: { votos, id },
+  votar,
+  token
+}: {
+  barraca: Barraca;
+  token: string;
+  votar: typeof Votar;
+}) => (
   <View
     style={{
       justifyContent: "center",
@@ -32,8 +44,17 @@ export default ({ barraca: { votos, id } }: { barraca: Barraca }) => (
         icon={props => (
           <Icon {...props} name="star" color={LightTheme.colors.accent} />
         )}
-        onPress={() => Alert.alert("Aviso", "Opção não disponível em teste")}
+        onPress={() => votar(token, id)}
       />
     </View>
   </View>
 );
+
+const mapActionToProps = (dispatch: Dispatch<RootAction>) => ({
+  votar: bindActionCreators(Votar, dispatch)
+});
+
+export default connect(
+  null,
+  mapActionToProps
+)(LikeBarraca);

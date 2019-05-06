@@ -9,12 +9,13 @@ export interface ListaBarracasProps {
   barracas: Barraca[];
   refreshing: boolean;
   refresh(): any;
+  token: string;
 }
 
 export default (props: ListaBarracasProps) => (
   <FlatList
     data={props.barracas}
-    renderItem={props => <ItemBarraca {...props} />}
+    renderItem={p => <ItemBarraca {...p} token={props.token} />}
     removeClippedSubviews={true}
     keyExtractor={barraca => `barraca-${barraca.id}`}
     ItemSeparatorComponent={Divider}
