@@ -1,4 +1,4 @@
-package com.appfestadomilho;
+package br.com.fasipe.milhoapp;
 
 import android.app.Application;
 
