@@ -1,47 +1,61 @@
 import BottomBarIcon from 'components/BottomBarIcon';
-import LottieView from 'lottie-react-native';
 import * as React from 'react';
-import { SafeAreaView } from 'react-native';
-import { Button, Text } from 'react-native-paper';
+import { SafeAreaView, View } from 'react-native';
+import Markdown from 'react-native-markdown-renderer';
+import { Button, Caption, Title } from 'react-native-paper';
 import { NavigationScreenOptions } from 'react-navigation';
 import { connect } from 'react-redux';
-import { Dispatch } from 'redux';
+import { bindActionCreators, Dispatch } from 'redux';
 
-import { RootAction } from '../../redux/redux';
+import { RootAction, RootState } from '../../redux/redux';
 import { logout } from '../Login/redux/actions';
+import { getUserInfo } from './redux/actions';
+import { initialState } from './redux/reducer';
+import sobre from './sobre';
 
-class Usuario extends React.Component<{ dispatch: Dispatch<RootAction> }> {
+class Usuario extends React.Component<{
+  logout: typeof logout;
+  getUserInfo: typeof getUserInfo;
+  token: string;
+  user: typeof initialState;
+}> {
   public static navigationOptions: NavigationScreenOptions = {
     tabBarIcon: props => <BottomBarIcon name="account" {...props} />,
     title: "Usuário"
   };
 
+  public componentDidMount() {
+    const { getUserInfo, token } = this.props;
+    getUserInfo(token);
+  }
+
   public render() {
+    const { user, logout } = this.props;
     return (
-      <SafeAreaView style={{ flex: 1, flexDirection: "column-reverse" }}>
-        <LottieView
-          source={require("res/animations/soon.json")}
-          autoPlay
-          loop={true}
-        />
-        <Text
-          style={{
-            color: "#017d01",
-            textAlign: "center",
-            padding: 25,
-            fontSize: 40,
-            fontWeight: "bold"
-          }}
-        >
-          Em Breve
-        </Text>
-        <Button onPress={() => this.props.dispatch(logout())}>Sair</Button>
+      <SafeAreaView style={{ flex: 1 }}>
+        <Title style={{ textAlign: "center" }}>{user.name}</Title>
+        <Caption style={{ textAlign: "center" }}>{user.email}</Caption>
+        <Button onPress={() => logout()}>Sair</Button>
+        <Title style={{ textAlign: "center" }}>Sobre</Title>
+        <View style={{ paddingHorizontal: 15 }}>
+          <Markdown>{sobre}</Markdown>
+        </View>
       </SafeAreaView>
     );
   }
 }
 
+const mapStateToprops = (state: RootState) => ({
+  token: state.login.token,
+  user: state.user
+});
+
+const mapActionToProps = (dispatch: Dispatch<RootAction>) => ({
+  logout: bindActionCreators(logout, dispatch),
+  getUserInfo: bindActionCreators(getUserInfo, dispatch)
+});
+
 export default connect(
-  null,
-  null
+  mapStateToprops,
+  mapActionToProps
 )(Usuario);
