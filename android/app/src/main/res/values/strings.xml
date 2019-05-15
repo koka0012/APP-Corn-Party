@@ -1,4 +1,5 @@
 <resources>
+	<string moduleConfig="true" name="reactNativeCodePush_androidDeploymentKey">a741baf3-9111-4060-a561-ddf930278a61</string>
     <string name="app_name">Festa do Milho</string>
     <string name="facebook_app_id">2203512176434861</string>
 </resources>
