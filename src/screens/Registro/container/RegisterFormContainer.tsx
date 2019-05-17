@@ -11,7 +11,8 @@ import { register } from '../redux/actions';
 export const initialValues = {
   email: "",
   password: "",
-  name: ""
+  name: "",
+  telefone: ""
 };
 
 export const validationSchema = Yup.object().shape({
@@ -19,7 +20,8 @@ export const validationSchema = Yup.object().shape({
     .email("Insira um email válido!")
     .required("Preencha este campo!"),
   name: Yup.string().required("Preencha este campo!"),
-  password: Yup.string().required("Preencha este campo!")
+  password: Yup.string().required("Preencha este campo!"),
+  telefone: Yup.string().required("Preencha este campo!")
 });
 
 export interface RegisterFormContainerProps {

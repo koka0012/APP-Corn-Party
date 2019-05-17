@@ -1,6 +1,7 @@
 import FlexAreaView from 'components/FlexAreaView';
 import * as React from 'react';
-import { NavigationScreenOptions, ScrollView } from 'react-navigation';
+import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view';
+import { NavigationScreenOptions } from 'react-navigation';
 import { LightTheme } from 'res/theme';
 
 import RegisterForm from './components/RegisterForm';
@@ -14,11 +15,11 @@ export default class Registro extends React.Component {
   public render() {
     return (
       <React.Fragment>
-        <ScrollView contentContainerStyle={{ flexGrow: 1 }}>
+        <KeyboardAwareScrollView>
           <FlexAreaView>
             <RegisterForm />
           </FlexAreaView>
-        </ScrollView>
+        </KeyboardAwareScrollView>
       </React.Fragment>
     );
   }

@@ -1,9 +1,7 @@
 import Form from 'components/Form';
 import TextInput from 'components/Form/TextInput';
 import { FormikProps } from 'formik';
-import isHigherVersion from 'lib/isHigherVersion';
 import * as React from 'react';
-import { Platform } from 'react-native';
 import { Button } from 'react-native-paper';
 
 import { initialValues } from '../../container/RegisterFormContainer';
@@ -28,7 +26,7 @@ export default (
       errors={props.errors}
       toucheds={props.touched}
     />
-    <TextInput
+    {/* <TextInput
       label="Senha"
       mode="outlined"
       name="password"
@@ -44,6 +42,29 @@ export default (
             : undefined
           : "password"
       }
+    /> */}
+
+    {/* <InputMask
+      name="telefone"
+      errors={props.errors}
+      toucheds={props.touched}
+      type="cel-phone"
+      customTextInputProps={{
+        label: "Telefone",
+        mode: "outlined",
+        textContentType: "telephoneNumber"
+        // keyboardType: ""
+      }}
+    /> */}
+    <TextInput
+      label="Telefone"
+      mode="outlined"
+      name="telefone"
+      type="text"
+      errors={props.errors}
+      toucheds={props.touched}
+      textContentType="telephoneNumber"
+      keyboardType="phone-pad"
     />
     <Button
       mode="contained"

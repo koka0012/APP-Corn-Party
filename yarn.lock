@@ -5694,6 +5694,11 @@ mkdirp@^0.5.0, mkdirp@^0.5.1:
   dependencies:
     minimist "0.0.8"
 
+moment@2.19.3:
+  version "2.19.3"
+  resolved "https://registry.yarnpkg.com/moment/-/moment-2.19.3.tgz#bdb99d270d6d7fda78cc0fbace855e27fe7da69f"
+  integrity sha1-vbmdJw1tf9p4zA+6zoVeJ/59pp8=
+
 morgan@^1.9.0:
   version "1.9.1"
   resolved "https://registry.yarnpkg.com/morgan/-/morgan-1.9.1.tgz#0a8d16734a1d9afbc824b99df87e738e58e2da59"
@@ -6718,6 +6723,26 @@ react-native-gesture-handler@^1.2.1:
     invariant "^2.2.2"
     prop-types "^15.5.10"
 
+react-native-input-scroll-view@^1.9.2:
+  version "1.9.2"
+  resolved "https://registry.yarnpkg.com/react-native-input-scroll-view/-/react-native-input-scroll-view-1.9.2.tgz#2d641b78a6926cadb72a9cec0e65601c60e9b47f"
+  integrity sha512-AB2PbM/0gIdMmiDC37lKHyxEZQptm9YD5fe8Uq26MJifQUjW3UBYI5IfMTFedSfpzq76WtTJ5D2Csu9Q58F3IA==
+  dependencies:
+    prop-types "^15.5.10"
+
+react-native-iphone-x-helper@^1.0.3:
+  version "1.2.0"
+  resolved "https://registry.yarnpkg.com/react-native-iphone-x-helper/-/react-native-iphone-x-helper-1.2.0.tgz#9f8a376eb00bc712115abff4420318a0063fa796"
+  integrity sha512-xIeTo4s77wwKgBZLVRIZC9tM9/PkXS46Ul76NXmvmixEb3ZwqGdQesR3zRiLMOoIdfOURB6N9bba9po7+x9Bag==
+
+react-native-keyboard-aware-scroll-view@^0.8.0:
+  version "0.8.0"
+  resolved "https://registry.yarnpkg.com/react-native-keyboard-aware-scroll-view/-/react-native-keyboard-aware-scroll-view-0.8.0.tgz#00bcaa38c91323913bb7a733059ad2bc4875f88c"
+  integrity sha512-gPfhgHQI/z7Cc5aeNOEmK0b250QkAeU6V+4oH8EC7mmFneEKn6MAIDjpoiwqt6bV+lFJPABXfx9MtrRmtCeJ/Q==
+  dependencies:
+    prop-types "^15.6.2"
+    react-native-iphone-x-helper "^1.0.3"
+
 react-native-markdown-renderer@^3.2.8:
   version "3.2.8"
   resolved "https://registry.yarnpkg.com/react-native-markdown-renderer/-/react-native-markdown-renderer-3.2.8.tgz#217046cf198eca632a65f93cdf7dd7766f718070"
@@ -6728,6 +6753,14 @@ react-native-markdown-renderer@^3.2.8:
     markdown-it "^8.4.0"
     prop-types "^15.5.10"
     react-native-fit-image "^1.5.2"
+
+react-native-masked-text@^1.12.2:
+  version "1.12.2"
+  resolved "https://registry.yarnpkg.com/react-native-masked-text/-/react-native-masked-text-1.12.2.tgz#0c91bc24ccfdf3266da7fac3f10834fa21fb02c4"
+  integrity sha512-pOl75QaOYWHFeC6DRjlG+HqSn1qz0w1zsqjJhH01QqCqZPI5t+V+m/TXzBp8SktDHLcOMfnFJfrrazY/ZC1GDg==
+  dependencies:
+    moment "2.19.3"
+    tinymask "^1.0.2"
 
 react-native-modalbox@^1.7.1:
   version "1.7.1"
@@ -8082,6 +8115,11 @@ tiny-warning@^1.0.2:
   version "1.0.2"
   resolved "https://registry.yarnpkg.com/tiny-warning/-/tiny-warning-1.0.2.tgz#1dfae771ee1a04396bdfde27a3adcebc6b648b28"
   integrity sha512-rru86D9CpQRLvsFG5XFdy0KdLAvjdQDyZCsRcuu60WtzFylDM3eAWSxEVz5kzL2Gp544XiUvPbVKtOA/txLi9Q==
+
+tinymask@^1.0.2:
+  version "1.0.2"
+  resolved "https://registry.yarnpkg.com/tinymask/-/tinymask-1.0.2.tgz#df3775a94087b0d3d056c256e8923c01b7ec0941"
+  integrity sha1-3zd1qUCHsNPQVsJW6JI8AbfsCUE=
 
 tmp@^0.0.29:
   version "0.0.29"
